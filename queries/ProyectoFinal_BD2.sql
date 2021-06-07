@@ -104,6 +104,7 @@ CREATE TABLE [usuarios] (
     )
     GO
 
+
 ALTER TABLE [personal] ADD CONSTRAINT [puesto_personal] FOREIGN KEY ([puesto]) REFERENCES [puestos] ([id])
     GO
 
