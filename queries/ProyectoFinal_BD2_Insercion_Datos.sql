@@ -1,4 +1,3 @@
-
 INSERT INTO dbo.direcciones
 	VALUES	(1,'25','7 calle','guatemala',10100,'amparito','guatemala','guatemala','activo'),
 			(2,'69','10 avenida','coban',10110,'buena vista','alta verapaz','coban','activo'),
@@ -47,7 +46,7 @@ INSERT INTO dbo.clientes
 			(2,'1203-12345-1246','Roberto Cobreros',2,'1995-09-17','Roberto@correo.com','0912-9013','activo' ),
 			(3,'1203-12345-1247','Remigio Urtado',3,'1995-09-18','Remigio@correo.com','0912-9014','inactivo' ),
 			(4,'1203-12345-1248','Leonardo Mendibuey',4,'1995-09-19','Leonardo@correo.com','0912-9015','activo' ),
-			(5,'1203-12345-1249','Héctor Inda',5,'1991-10-09','Héctor@correo.com','0912-9016','inactivo'),
+			(5,'1203-12345-1249','Hï¿½ctor Inda',5,'1991-10-09','Hï¿½ctor@correo.com','0912-9016','inactivo'),
 			(6,'1203-12345-1250','Soraya Larrauri',6,'1991-10-10','Soraya@correo.com','0912-9017','activo' ),
 			(7,'1203-12345-1251','Andonis Aceves',7,'1991-10-11','Andonis@correo.com','0912-9018','activo' ),
 			(8,'1203-12345-1252','Oier Cantoral',8,'1991-10-12','Oier@correo.com','0912-9019','activo' ),
@@ -57,7 +56,7 @@ INSERT INTO dbo.clientes
 			(12,'1203-12345-1256','Africa Esnarriaga',12,'1989-03-14','Africa@correo.com','0912-9023','activo' ),
 			(13,'1203-12345-1257','Liberata Jonsansoro',13,'1989-03-15','Liberata@correo.com','0912-9024','activo' ),
 			(14,'1203-12345-1258','Edelys Arrizabalaga',14,'1989-03-16','Edelys@correo.com','0912-9025','activo' ),
-			(15,'1203-12345-1259','Inés Teberga',15,'1989-03-17','Inés@correo.com','0912-9026','activo')
+			(15,'1203-12345-1259','Inï¿½s Teberga',15,'1989-03-17','Inï¿½s@correo.com','0912-9026','activo')
 
 
 INSERT INTO dbo.personal
@@ -69,7 +68,7 @@ INSERT INTO dbo.personal
 			(6,'9856-88910-0106',25,'Geyner','Gordejuela','1991-12-06','2017-10-14','2255-0915','Geyner@correo.com','','Activo',3),
 			(7,'9856-88910-0107',24,'Gorka','Barahona','1991-12-07','2019-06-19','2255-0916','Gorka@correo.com','','Activo',2),
 			(8,'9856-88910-0108',23,'Donato','Cardon','1991-12-08','2019-06-20','2255-0917','Donato@correo.com','','Activo',2),
-			(9,'9856-88910-0109',22,'José','Aliprando','1991-12-09','2019-06-21','2255-0918','José@correo.com','','Activo',4),
+			(9,'9856-88910-0109',22,'Josï¿½','Aliprando','1991-12-09','2019-06-21','2255-0918','Josï¿½@correo.com','','Activo',4),
 			(10,'9856-88910-0110',21,'Santino','Chirivoga','1989-05-24','2019-06-22','2255-0919','Santino@correo.com','','Activo',2),
 			(11,'9856-88910-0111',20,'Natalia','Esparza','1989-05-25','2019-06-23','2255-0920','Natalia@correo.com','','Activo',2),
 			(12,'9856-88910-0112',19,'Keven','Poz','1989-05-26','2019-06-24','2255-0921','Keven@correo.com','2021-12-01','Inactivo',4),
