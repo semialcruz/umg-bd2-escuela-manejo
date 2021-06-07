@@ -148,4 +148,4 @@ VALUES	('2021-05-03','3','38500','1','total'),
 
 
 INSERT INTO dbo.usuarios
-	VALUES (1,'salvaradoc7@miumg.edu.gt','admin',NULL,'$2y$10$sLwJfyz/eXJbqKusJDTqmebNz0j2WCMEQKqmiYO2QgXhoaLlPszEG', CURRENT_TIMESTAMP,NULL)
+	VALUES (1,'admin','salvaradoc7@miumg.edu.gt','','$2y$10$sLwJfyz/eXJbqKusJDTqmebNz0j2WCMEQKqmiYO2QgXhoaLlPszEG', CURRENT_TIMESTAMP,NULL)
