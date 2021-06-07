@@ -33,21 +33,23 @@ class APPlogin
 
     public function display(){
         if ($this->login->displayRegisterPage()) {
-            include(APPLOGIN_LOCATION.'views/header/header-style.php');
+            include(APPLOGIN_LOCATION.'views/header/header.php');
             //include(APPLOGIN_LOCATION.'views/login/register.php');
             $this->display_messages();
             echo "</body></html>".PHP_EOL;
             exit(0);
 
         } elseif ($this->login->isUserLoggedIn() === TRUE) {
-            include(APPLOGIN_LOCATION.'views/header/header-style.php');
-            include(APPLOGIN_LOCATION.'views/login/logged_in.php');
+            include(APPLOGIN_LOCATION.'views/header/header.php');
+            include(APPLOGIN_LOCATION.'views/panels/dashboard.php');
+            include(APPLOGIN_LOCATION.'views/footer/footer.php');
 
         } else {
-            include(APPLOGIN_LOCATION.'views/header/header-style.php');
+            include(APPLOGIN_LOCATION.'views/header/header.php');
             include(APPLOGIN_LOCATION.'views/login/not_logged_in.php');
             $this->display_messages();
-            echo "</body></html>".PHP_EOL;
+            //echo "</body></html>".PHP_EOL;
+            include(APPLOGIN_LOCATION.'views/footer/footer.php');
             exit(0);
         }
     }

@@ -16,7 +16,10 @@ class database
                 "pwd" => DBPWD
             );
             $this->connection = sqlsrv_connect($serverName, $connectionOptions);
-            return;
+            if ($this->connection === false){
+                die( print_r( sqlsrv_errors(), true));
+            }
+            //return;
         }
 
     }
@@ -26,7 +29,7 @@ class database
     }
 
     public function getDatabaseError(){
-        return $this->connection->connect_errno;
+        return $this->connection->sqlsrv_errors();
     }
 
 }

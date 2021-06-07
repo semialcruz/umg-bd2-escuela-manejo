@@ -1,8 +1,9 @@
 <?php
 
-define("SERVER", "umgserver.southcentralus.cloudapp.azure.com");
+//define("SERVER", "umgserver.southcentralus.cloudapp.azure.com");
+define("SERVER", "localhost");
 define("DATABASE","Escuela_Manejo");
-define("DBUSER","sa");
+define("DBUSER","umg");
 define("DBPWD","123");
 
 

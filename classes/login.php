@@ -14,7 +14,7 @@ class login
     private $email = '';                // Correo electrónico del usuario
     private $password = '';             // Contraseña del usuario
     private $pass_hash = '';            // Contraseña codificada
-    private $user_is_logged_in = '';       // Estado del ingreso del usuario
+    private $user_is_logged_in = false;       // Estado del ingreso del usuario
 
     private $connection = null;         // Conexión a la base de datos
 
@@ -28,7 +28,7 @@ class login
      * Constructor de la clase Login
      * Esta función inicia automáticamente cuando un objeto de esta clase se crea
      * */
-    public function __construct(){
+    public function __construct($db){
 
         if( FORCE_HTTPS && $_SERVER["HTTPS"] != "on" ){
             header("HTTP/1.1 301 Moved Permanently");
@@ -54,56 +54,46 @@ class login
 
             $this->doLogout();
 
-        }/*elseif ( (isset($_SESSION["user_logged_in"])) && ($_SESSION["user_logged_in"] == 1) ){
+        }elseif ( (isset($_SESSION["user_logged_in"])) && ($_SESSION["user_logged_in"] == 1) ){
 
             if ($this->connect_to_db($db)){
                 $this->validate_user_logged();
             }
 
-        }*/
+        }
 
         if (isset($_POST["login"])){
             if (empty($_POST["user"]) || empty($_POST["password"])){
                 $this->errors[] = 'Campos "Nombre de usuario" y/o "Contraseña" están vacíos';
                 $this->doLogout();
-            }/*elseif ($nonce->isValid()){
-                if ($this->connect_do_db($db)){
+            }else{
+                if ($this->connect_to_db($db)){
                     $this->login();
                 }
-            }*/else{
-                $this->doLogout();
             }
-        }elseif (isset($_POST["register"])){
-            if (PUBLIC_REGISTER !== TRUE && !$this->user_is_logged_in){
-                $this->errors[] = 'El registro está deshabilitado';
-                return;
-            }/*elseif ($nonce->isValid()){
-                if ($this->connect_to_db($db)){
-                    $this->registerNewUser();
-                }else{
-                    $this->doLogout();
-                }
-            }*/
         }
 
     }
 
     private function login(){
 
-        $q = "SELECT usuario, email, contrasenia FROM usuarios WHERE usuario ? ";
+        $this->user = $_POST['user'];
+
+        $q = "SELECT usuario, email, con_hash FROM usuarios WHERE usuario = ?";
         $p = array($this->user);
         $o = array("Scrollable"=>SQLSRV_CURSOR_KEYSET);
+        $check = sqlsrv_query($this->connection,$q,$p);
+        //var_dump(sqlsrv_has_rows($check));
 
-        $this->user = $this->connection->real_escape_string($_POST['user']);
-        $check = $this->connection->sqlsrv_query($q,$p,$O);
+        if (sqlsrv_has_rows($check) == true){
 
-        if ($check->sqlsrv_num_rows() == 1){
-            $result_row = $check->sqlsrv_fetch_object();
+            $result_row = sqlsrv_fetch_object($check);
 
             //TODO: Cambiar contrasenia por hash
-            if ($_POST["password"] == $result_row->contrasenia){
+            //if ($_POST["password"] == $result_row->contrasenia){
+            if (password_verify($_POST["password"],$result_row->con_hash)){
 
-                $_SESSION['name'] = $result_row->usuario;
+                $_SESSION['user'] = $result_row->usuario;
                 $_SESSION['email'] = $result_row->email;
                 $_SESSION['user_logged_in'] = 1;
 
@@ -111,14 +101,14 @@ class login
                 $_SESSION['ip'] = $_SERVER['REMOTE_ADDR'];
                 $_SESSION['count'] = 0;
 
-                setcookie("user", $result_row->user, time() + (3600*24*100));
+                setcookie("user", $result_row->usuario, time() + (3600*24*100));
                 setcookie("email", $result_row->email, time() + (3600*24*100));
                 $this->user_is_logged_in = true;
                 return true;
 
             }else{
 
-                $this->errors[] = "Usuario y/o contraseña inconrrectos. Intente de nuevo";
+                $this->errors[] = "Usuario y/o contraseña inconrrectos. Intente de nuevo []";
                 $this->login_delay();
                 return false;
 
@@ -174,7 +164,7 @@ class login
         sleep(LOGIN_FAIL_DELAY);
     }
 
-    private  function connect_to_db($db){
+    private function connect_to_db($db){
         if ($this->connection === NULL){
             $this->connection = $db->getDatabaseConnection();
             if ($this->connection == FALSE) {
