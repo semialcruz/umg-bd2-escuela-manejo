@@ -44,5 +44,6 @@ select * from clientes
 select * from direcciones
 DELETE from direcciones where codigo = 31
 
+
 SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED
 select * from direcciones
