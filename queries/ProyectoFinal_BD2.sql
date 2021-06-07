@@ -93,11 +93,13 @@ CREATE TABLE [clases] (
     GO
 
 CREATE TABLE [usuarios] (
-    [id] integer PRIMARY KEY IDENTITY,
-    [usuario] nvarchar(255),
-    [contrasenia] nvarchar(255),
+    [id] integer PRIMARY KEY,
+    [usuario] nvarchar(255) NOT NULL,
+    [email] nvarchar(255) UNIQUE NOT NULL,
+    [contrasenia] nvarchar(255) NOT NULL,
     [con_hash] nvarchar(255),
-    [creado_el] datetime,
+    [creado_el] datetime
+    Default current_timestamp,
     [actualizado_el] datetime
     )
     GO
