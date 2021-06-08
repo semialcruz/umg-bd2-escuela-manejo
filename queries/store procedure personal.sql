@@ -41,8 +41,3 @@ AS BEGIN
 		print 'hay error'
 	END CATCH
 END
-
-EXEC SP_Ingresar_Personal '24','10 avenida','guatemala','10100','dia alegre','guatemala','guatemala','activo','1203-12345-1270','Esteban','Solares','1991-03-15','2021-06-06','3654-5425','Esteban@mail.com','activo',2
-
-select * from direcciones
-select * from personal

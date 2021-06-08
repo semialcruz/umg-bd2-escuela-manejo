@@ -38,12 +38,3 @@ SELECT ERROR_MESSAGE(), ERROR_SEVERITY()
 END CATCH
 END
 
-EXEC SP_Ingresar_Cliente 31,'31','6 avenida','guatemala','10100','villa marina','guatemala','guatemala','activo','16','1203-12345-1260','Jadir Solema','1991-04-25','jadir@mail.com','3654-5425','activo'
-commit
-select * from clientes
-select * from direcciones
-DELETE from direcciones where codigo = 31
-
-
-SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED
-select * from direcciones
