@@ -61,7 +61,7 @@ $(document).ready(function () {
                         'Los datos del nuevo personal se ingresaron con éxito'+
                         '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>'
                     );
-                    $('#new-client').trigger("reset");
+                    $('#new-personal').trigger("reset");
                 }else{
                     $('#alerta').addClass('alert-warning');
                     $('#alerta').html(
