@@ -61,7 +61,7 @@ VALUES	('1203-12345-1245','Fedrah Zarra',1,'1995-09-16','Fedrah@correo.com','091
 
 
 INSERT INTO personal(codigo,direccion,nombre,apellido,fecha_nacimiento,fecha_contratacion,telefono,email,fecha_baja,estado,puesto)
-VALUES	('9856-88910-0101',30,'Arquimides','Zurica','1991-12-01','2017-10-09','2255-0910','arquimides@correo.com','2021-12-01','Inactivo',1),
+VALUES ('9856-88910-0101',30,'Arquimides','Zurica','1991-12-01','2017-10-09','2255-0910','arquimides@correo.com','2021-12-01','Inactivo',1),
     ('9856-88910-0102',29,'Corina','Murua','1991-12-02','2017-10-10','2255-0911','corina@correo.com','2021-12-02','Inactivo',2),
     ('9856-88910-0103',28,'Pedro','Solis','1991-12-03','2017-10-11','2255-0912','pedro@correo.com','','Activo',2),
     ('9856-88910-0104',27,'Carmen','Oles','1991-12-04','2017-10-12','2255-0913','carmen@correo.com','','Activo',2),
