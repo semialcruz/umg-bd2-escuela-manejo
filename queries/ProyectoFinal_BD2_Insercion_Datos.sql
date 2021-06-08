@@ -97,7 +97,7 @@ VALUES	('honda','crv','2021-05-02','2006'),
 
 INSERT INTO contratos(numero_sesiones,instructor,vehiculo,fecha_inicio,fecha_fin,costo_total,estado)
 VALUES	(15,15,1,'2020-09-12','2020-10-09','850','Inactivo'),
-    (14,14,2,'2020-09-13','2020-10-10','850','Inactivo'),
+    (14,14,2,'2020-09-12','2020-10-10','850','Inactivo'),
     (13,13,3,'2020-09-14','2020-10-11','850','Inactivo'),
     (12,8,4,'2020-09-15','2020-10-12','850','Inactivo'),
     (11,11,5,'2020-09-16','2020-10-13','850','Inactivo'),
