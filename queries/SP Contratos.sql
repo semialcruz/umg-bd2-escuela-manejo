@@ -11,8 +11,8 @@ AS BEGIN
 		SELECT numero_contrato, numero_sesiones, CONCAT(nombre,' ',apellido) AS Instructor, 
 		CONCAT(marca,' ',modelo,' ',anio)AS Vehiculo, fecha_inicio, fecha_fin
 		FROM contratos a LEFT JOIN personal b ON a.instructor = b.id
-					     LEFT JOIN vehiculos c ON a.vehiculo = c.codigo 
-
+					     LEFT JOIN vehiculos c ON a.vehiculo = c.codigo
+        WHERE a.estado = 'Activo'
 		COMMIT
 	END TRY
 	BEGIN CATCH
