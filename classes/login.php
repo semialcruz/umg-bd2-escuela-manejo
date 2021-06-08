@@ -89,8 +89,8 @@ class login
 
             $result_row = sqlsrv_fetch_object($check);
 
-            //TODO: Cambiar contrasenia por hash
             //if ($_POST["password"] == $result_row->contrasenia){
+
             if (password_verify($_POST["password"],$result_row->con_hash)){
 
                 $_SESSION['user'] = $result_row->usuario;
